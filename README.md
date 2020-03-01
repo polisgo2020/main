@@ -8,6 +8,7 @@
 * http://golang.org/doc
 * http://ardanlabs.com/blog
 * https://go101.org
+* Язык программирования Go / Керниган, Брайан У., Донован, Алан А.А.
 
 ### Git
 
