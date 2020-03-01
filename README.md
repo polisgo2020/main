@@ -1,6 +1,13 @@
-# Разработка на языке Golang
+# Разработка на языке Golang 2020
 
-## Подготовка
+## Материалы
+
+### Golang
+
+* http://gobyexample.com
+* http://golang.org/doc
+* http://ardanlabs.com/blog
+* https://go101.org
 
 ### Git
 
