@@ -46,4 +46,30 @@ forCycle:
 		}
 	}
 	fmt.Println()
+
+	// foreach slice
+	strs := []string{"a", "b", "c", "d"}
+	for i, str := range strs {
+		fmt.Print(i, str, " ")
+	}
+	fmt.Println()
+
+	// str - is one var
+	for _, str := range strs {
+		fmt.Print(&str, " ", str, " ")
+	}
+	fmt.Println()
+
+	//foreach map
+	strMap := map[int]string{
+		0: "a",
+		1: "b",
+		2: "c",
+		3: "d",
+	}
+	for k, v := range strMap {
+		fmt.Print(k, v, " ")
+	}
+	fmt.Println()
+
 }
