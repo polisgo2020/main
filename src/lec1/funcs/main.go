@@ -11,20 +11,30 @@ func main() {
 	// with errors
 	fmt.Println(sumErr(1, 2, 0))
 	fmt.Println(sumErr(1, 1, 0))
+	if _, err := sumErr(1, 1, 0); err != nil {
+		fmt.Println(err)
+	}
 
 	// slice param
-	sliceParam(1, 5, 10)
+	sliceParam([]int{1, 5, 10}...)
 
 	power2 := func(a int) int {
 		return a * a
 	}
+
+	func(a int) {
+		a++
+	}(5)
 
 	prefix := "prefix"
 
 	type pwrFunc func(a int) int
 
 	echo := func(a int, lambda pwrFunc) {
-		fmt.Println(prefix, lambda(a))
+		mult := func(a int) string {
+			return fmt.Sprintf("%s%d", prefix, a)
+		}
+		fmt.Println(prefix, mult(lambda(a)))
 	}
 
 	echo(1, power2)

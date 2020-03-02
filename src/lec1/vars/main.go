@@ -8,7 +8,7 @@ import (
 const helloStr = "hello"
 
 const (
-	constA = iota * 2
+	constA = iota + 1
 	constB
 	_
 	constC

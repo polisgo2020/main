@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	if true {
+	if (true || true) && true {
 		fmt.Println("hw")
 	}
 	if 1 == 1 {

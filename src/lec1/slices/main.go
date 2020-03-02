@@ -7,7 +7,7 @@ import (
 func main() {
 	strs := [3]string{"a", "b", "c"}
 	fmt.Printf("%+v\n", strs)
-	fmt.Println(strs[1])
+	fmt.Println(strs[2])
 
 	const Size = 4
 	// size := int(4)
@@ -32,7 +32,7 @@ func main() {
 	fmt.Printf("%#v len %d cap %d\n", strsSlice2, len(strsSlice2), cap(strsSlice2))
 
 	fmt.Println(strsSlice2[0])
-	// fmt.Println(strsSlice2[10])
+	// fmt.Println(strsSlice2[4])
 
 	// slicing slices
 	// take [1,3) elements by making the link
@@ -52,5 +52,6 @@ func main() {
 	// correct copy
 	sliceCopy2 := make([]string, len(sliceCopy), len(sliceCopy))
 	copy(sliceCopy2, sliceCopy)
+	sliceCopy2[0] = "aaa"
 	fmt.Println(sliceCopy, sliceCopy2)
 }

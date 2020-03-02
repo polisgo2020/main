@@ -55,8 +55,8 @@ forCycle:
 	fmt.Println()
 
 	// str - is one var
-	for _, str := range strs {
-		fmt.Print(&str, " ", str, " ")
+	for i := range strs {
+		fmt.Print(&strs[i], " ", strs[i], " ")
 	}
 	fmt.Println()
 
