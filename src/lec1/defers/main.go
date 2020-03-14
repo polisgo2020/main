@@ -5,6 +5,8 @@ import (
 )
 
 func main() {
+	testDeferCycle()
+
 	defer func() {
 		err := recover()
 		if err != nil {
@@ -31,4 +33,23 @@ func main() {
 
 	n := 0
 	fmt.Println(1 / n)
+}
+
+type A int
+
+func (a A) Print() {
+	fmt.Println(a)
+}
+
+func testDeferCycle() {
+	var as []A
+	for i := 0; i < 10; i++ {
+		as = append(as, A(i))
+	}
+
+	for _, a := range as {
+		defer a.Print()
+	}
+
+	fmt.Println("before all defers")
 }
