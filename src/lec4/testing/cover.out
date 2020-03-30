@@ -1,0 +1,19 @@
+mode: set
+github.com/polisgo2020/main/src/lec4/testing/main.go:7.13,10.2 2 0
+github.com/polisgo2020/main/src/lec4/testing/main.go:12.33,15.32 3 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:22.2,22.12 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:15.32,16.37 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:16.37,17.25 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:17.25,19.5 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:25.32,28.22 3 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:31.2,35.3 2 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:28.22,30.3 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:38.37,41.40 3 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:56.2,56.15 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:41.40,42.43 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:42.43,45.4 2 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:45.9,45.50 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:45.50,48.4 2 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:48.9,48.32 1 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:48.32,51.4 2 1
+github.com/polisgo2020/main/src/lec4/testing/main.go:51.9,54.4 2 1
