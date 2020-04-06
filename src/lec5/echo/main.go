@@ -1,61 +1,70 @@
 package main
 
 import (
-	"html/template"
-	"io"
-	"net/http"
-	"strconv"
+	"log"
+	"time"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/polisgo2020/main/src/lec5/echo/templates"
+	"github.com/rs/zerolog"
+	zl "github.com/rs/zerolog/log"
 )
 
-// TemplateRenderer is a custom html/template renderer for Echo framework
-type TemplateRenderer struct {
-	templates *template.Template
-}
-
-// Render renders a template document
-func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
-	return t.templates.ExecuteTemplate(w, name, data)
-}
-
 func main() {
+	cfg, err := loadConfig()
+	if err != nil {
+		log.Fatal("Error loading config", err)
+	}
+
+	logLevel, err := zerolog.ParseLevel(cfg.LogLevel)
+	if err != nil {
+		log.Fatal("Invalid log level", err)
+	}
+	zerolog.SetGlobalLevel(logLevel)
+
 	e := echo.New()
 
 	// Middleware
-	e.Use(middleware.Logger())
+	//e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	// custom logger
+	e.Use(func(next echo.HandlerFunc) echo.HandlerFunc {
+		return func(c echo.Context) (err error) {
+			req := c.Request()
+			res := c.Response()
+			start := time.Now()
+			if err = next(c); err != nil {
+				c.Error(err)
+			}
+			stop := time.Now()
 
-	renderer := &TemplateRenderer{
-		templates: template.Must(template.ParseGlob("*.html")),
+			zl.Debug().
+				Str("method", req.Method).
+				Str("remote", req.RemoteAddr).
+				Str("path", req.URL.Path).
+				Int("response", res.Status).
+				Int("duration", int(stop.Sub(start))).
+				Msgf("Called url %s", req.URL.Path)
+			return nil
+		}
+	})
+
+	// template renderer
+	e.Renderer, err = templates.New()
+	if err != nil {
+		zl.Fatal().Err(err).Msg("Error initializing templates")
 	}
-	e.Renderer = renderer
+
+	app := NewApp()
 
 	// Routes
-	e.GET("/", hello)
-	// Named route "foobar"
-	e.GET("/something", func(c echo.Context) error {
-		return c.Render(http.StatusOK, "template.html", map[string]interface{}{
-			"name": "Dolly!",
-		})
-	})
-	e.GET("/users/:id", getUser)
+	e.GET("/", app.Index)
+	e.GET("/something", app.Something)
+	e.GET("/users/:id", app.User)
 
-	e.Logger.Fatal(e.Start(":8080"))
-}
-
-func hello(c echo.Context) error {
-	return c.String(http.StatusOK, "Hello, World!")
-}
-
-func getUser(c echo.Context) error {
-	id, _ := strconv.Atoi(c.Param("id"))
-	return c.JSON(http.StatusOK, struct {
-		ID   int
-		Name string
-	}{
-		ID:   id,
-		Name: "name",
-	})
+	err = e.Start(cfg.Listen)
+	if err != nil {
+		zl.Fatal().Err(err).Msg("Error starting echo")
+	}
 }
