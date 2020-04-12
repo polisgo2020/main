@@ -1,0 +1,26 @@
+version: '3'
+services:
+    blog:
+        build: ./blog
+        restart: always
+        container_name: blog
+        ports:
+            - 8080:8080
+        environment:
+            LISTEN: "0.0.0.0:8080"
+            PGSQL: "postgres://blog:111111@postgres:5432/blog?sslmode=disable"
+            LOG_LEVEL: debug
+
+    postgres:
+        image: postgres
+        container_name: postgres
+        restart: always
+        environment:
+            POSTGRES_USER: blog
+            POSTGRES_PASSWORD: 111111
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8081:8080
