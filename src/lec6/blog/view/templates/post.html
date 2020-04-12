@@ -1,0 +1,11 @@
+{{define "content"}}
+    <h1>{{.Post.Title}}</h1>
+    <div>{{.Post.Content}}</div>
+    <div>Date: {{.Post.CreatedAt}}</div>
+    <h3>Comments</h3>
+    {{range .Comments}}
+        <b>{{.Author}}:</b>
+        {{.Content}}
+        <br/>
+    {{end}}
+{{end}}
