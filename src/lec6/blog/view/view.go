@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"io"
 
-	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/model"
+	"github.com/polisgo2020/main/src/lec6/blog/model"
 )
 
 type View struct {

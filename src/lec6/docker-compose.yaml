@@ -18,6 +18,8 @@ services:
         environment:
             POSTGRES_USER: blog
             POSTGRES_PASSWORD: 111111
+        ports:
+            - 5432:5432
 
     adminer:
         image: adminer

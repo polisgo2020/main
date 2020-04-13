@@ -4,10 +4,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/config"
-	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/controller"
-	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/model"
-	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/view"
+	"github.com/polisgo2020/main/src/lec6/blog/config"
+	"github.com/polisgo2020/main/src/lec6/blog/controller"
+	"github.com/polisgo2020/main/src/lec6/blog/model"
+	"github.com/polisgo2020/main/src/lec6/blog/view"
 
 	"github.com/go-pg/pg/v9"
 	"github.com/rs/zerolog"

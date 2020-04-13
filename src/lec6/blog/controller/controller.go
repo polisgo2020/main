@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/model"
-	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/view"
+	"github.com/polisgo2020/main/src/lec6/blog/model"
+	"github.com/polisgo2020/main/src/lec6/blog/view"
 
 	"github.com/rs/zerolog/log"
 )
