@@ -1,3 +1,6 @@
+# После запуска через docker-compose up можно открыть в браузере localhost:8081, localhost:8080 
+# и подключиться к Postgresql через localhost:5432
+
 version: '3'
 services:
     blog:
