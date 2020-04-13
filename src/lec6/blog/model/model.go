@@ -60,6 +60,8 @@ func (m Model) AddPost(post Post) (Post, error) {
 func (m Model) Comments(post Post) ([]Comment, error) {
 	comments := []Comment{}
 	err := m.pg.Model(&comments).Where("post_id = ?", post.ID).Order("id ASC").Select()
+	// SELECT * FROM comments WHERE post_id = ? ORDER BY id ASC;
+	// SELECT * FROM comments WHERE post_id = %s ORDER BY id ASC;
 	return comments, err
 }
 
