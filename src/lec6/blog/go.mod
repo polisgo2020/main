@@ -5,7 +5,7 @@ go 1.14
 require (
 	github.com/caarlos0/env v3.5.0+incompatible
 	github.com/go-pg/pg v6.15.1+incompatible
-	github.com/jinzhu/inflection v0.0.0-20180308033659-04140366298a // indirect
+	github.com/go-pg/pg/v9 v9.1.6
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/onsi/ginkgo v1.12.0 // indirect
 	github.com/onsi/gomega v1.9.0 // indirect

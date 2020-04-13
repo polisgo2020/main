@@ -9,7 +9,7 @@ import (
 	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/model"
 	"github.com/polis-mail-ru-golang-1/examples/lec6/blog/view"
 
-	"github.com/go-pg/pg"
+	"github.com/go-pg/pg/v9"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )
